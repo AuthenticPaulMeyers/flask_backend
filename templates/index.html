@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <div class="container">
+        <div class="header-container">
+            <header class="navbar navbar-light bd-light">
+                <div class="logo">
+                    <h3><span class="text-primary">@</span>Malonda</h3>
+                </div>
+                <nav>
+                    <ul>
+                        <li class="btn" style="border: 1px solid #0d6efd">
+                            <a href="url_for(register)" class="text-black">Register</a>
+                        </li>
+                        <li class="btn btn-primary">
+                            <a href="url_for(login)" class="text-white">Login</a>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+    </div>
+
+{% endblock %}
