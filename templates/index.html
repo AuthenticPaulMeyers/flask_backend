@@ -1,24 +1,26 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-    <div class="container">
-        <div class="header-container">
-            <header class="navbar navbar-light bd-light">
-                <div class="logo">
-                    <h3><span class="text-primary">@</span>Malonda</h3>
-                </div>
-                <nav>
-                    <ul>
-                        <li class="btn" style="border: 1px solid #0d6efd">
-                            <a href="url_for(register)" class="text-black">Register</a>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg mb-4 navbar-light">
+            <div class="container p-3">
+                <a class="navbar-brand" href="{{ url_for('index') }}">#Malonda</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse mt-3">
+                    <ul class="navbar-nav mb-2 mb-lg-0" >
+                        <li class="btn rounded-pill border border-success nav-item mb-3" style="margin-right: 10px">
+                            <a href="/register" class="text-success nav-link">Register</a>
                         </li>
-                        <li class="btn btn-primary">
-                            <a href="url_for(login)" class="text-white">Login</a>
+                        <li class="btn btn-success rounded-pill nav-item mb-3">
+                            <a href="{{ url_for('login') }}" class="nav-link text-white">Login</a>
                         </li>
                     </ul>
-                </nav>
-            </header>
-        </div>
+                </div>
+            </div>
+        </nav>
     </div>
+   
 
 {% endblock %}

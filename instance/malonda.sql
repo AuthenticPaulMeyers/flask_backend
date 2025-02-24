@@ -1,0 +1,11 @@
+-- -- CREATE users TABLE
+-- CREATE TABLE users(
+--     id INTEGER,
+--     firstname TEXT,
+--     lastname TEXT,
+--     email TEXT NOT NULL UNIQUE,
+--     password,
+--     PRIMARY KEY(id)
+-- );
+
+-- SELECT * FROM users;
