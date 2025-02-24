@@ -8,7 +8,8 @@
 --     PRIMARY KEY(id)
 -- );
 
-SELECT * FROM users;
+SELECT * FROM products WHERE NOT user_id = 1;
+select * from users;
 
 -- -- CREATE products TABLE
 -- CREATE TABLE products (

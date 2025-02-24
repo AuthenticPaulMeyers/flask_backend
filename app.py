@@ -39,7 +39,7 @@ def login():
 
         user = db.execute("SELECT * FROM users WHERE email = ?", email)
         if not user:
-            return "User not found!"
+            flash("Wrong username or password!")
         
         user = user[0]
         if user['email'] == email and user['password'] == password:
@@ -100,7 +100,8 @@ def products():
     user_id = user[0]['id']
 
     products = db.execute("SELECT id, name, description, price FROM products WHERE user_id = ?", (user_id))
-
+    if not products:
+        return render_template('products.html', title='Products', message="No products available!")
     return render_template('products.html', title='Products', products=products)
 
 #Retrieve the image route
@@ -143,3 +144,25 @@ def delete(product_id):
     db.execute("DELETE FROM products WHERE id = ?", (product_id))
     return redirect(url_for('products'))
 
+#Profile route
+@app.route('/profile')
+def profile():
+    email = session.get('email')
+    user = db.execute("SELECT * FROM users WHERE email = (?)", email)
+    if not user:
+        flash("User not found!")
+    return render_template('profile.html', user=user[0])
+
+
+# Market place route
+@app.route('/market_place')
+def market_place():
+    email = session.get('email')
+    user = db.execute("SELECT id FROM users WHERE email = (?)", email)
+    if not user:
+        flash("User not found!")
+
+    user_id = user[0]['id']
+    products = db.execute("SELECT * FROM products WHERE NOT user_id = ?", user_id)
+
+    return render_template('market.html', title='Market Place', products=products)
