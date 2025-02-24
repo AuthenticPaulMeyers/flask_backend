@@ -17,10 +17,10 @@ class RegisterForm(FlaskForm):
     submit = SubmitField("Register")
 
 class AddProducts(FlaskForm):
-    productName = StringField("Product name", validators=[DataRequired()], render_kw={"placeholder": "Product name"})
-    description = StringField("Product description", validators=[DataRequired()], render_kw={"placeholder": "Product description"})
-    price = StringField("Price", validators=[DataRequired()], render_kw={"placeholder": "Price"})
-    image = FileField("Product image", validators=[FileRequired(), FileAllowed(['jpg', 'png', 'jpeg'], 'File format not allowed!')])
+    productName = StringField("Name", validators=[DataRequired()], render_kw={"placeholder": "Product name"})
+    description = StringField("Description", validators=[DataRequired()], render_kw={"placeholder": "Product description"})
+    price = StringField("Price", validators=[DataRequired()], render_kw={"placeholder": "Product price"})
+    image = FileField("Image", validators=[FileRequired(), FileAllowed(['jpg', 'png', 'jpeg'], 'File format not allowed!')])
     submit = SubmitField("Add product")
 
 

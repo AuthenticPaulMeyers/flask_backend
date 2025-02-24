@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+    {% include 'nav.html' %}
+    <div class="container">
+        {{ user }}
+        <div class="d-flex justify-content-between align-items-center">
+            <!-- Link to add products -->
+            <button class="btn btn-success"><a href="{{ url_for('add_products') }}" class="text-white">Add products</a></button>
+            <!-- Sort products -->
+            <select name="" id="">
+                <option value="" disabled selected>Sort by</option>
+                <option value="">Name</option>
+                <option value="">Price</option>
+            </select>
+        </div>
+        <hr class="mb-3">
+        <table class="table table-striped">
+            <thead>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Image</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                    <tr>
+                        <td>{{ product.id }}</td>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.description }}</td>
+                        <td>{{ product.price }}</td>
+                        <td>
+                            <img src="{{ url_for('image', product_id=product.id) }}" alt="Product image" width="300">
+                        </td>
+                        <td>
+                            <a href="{{ url_for('delete', product_id=product.id) }}">Delete</a>
+                            <a href="edit/product.id">Edit</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+    
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+
+
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<nav class="navbar navbar-expand-lg navbar-light mt-4">
+    <div class="container-fluid ">
+      <a class="navbar-brand" href="{{ url_for}}">#Malonda</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+              <a class="nav-link text-success f-4" aria-current="page" href="{{ url_for('dashboard') }}">Dashboard</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link text-success f-4" href="#">Market place</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link text-success f-4" href="#">Orders</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link text-success f-4" href="{{ url_for('products') }}">Products</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link text-success f-4" href="#">Profile</a>
+          </li>
+        </ul>
+        <div class="d-flex align-items-center">
+            <h5 style="margin-right: 10px">{{ username }}</h5>
+            <button class="btn border border-primary rounded-3"><a href="{{ url_for('logout') }}" class="text-primary">Logout</a></button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+{% endblock %}
