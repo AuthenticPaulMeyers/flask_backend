@@ -3,7 +3,7 @@
 {% block body %}
     <div class="d-flex flex-column justify-content-center mt-5 p-4 container border rounded-3" style="width: 50%;">
         <div>
-            <h3 class="text-center text-white bg-success mb-3 p-2">Register</h3>
+            <h3 class="text-center text-white bg-success mb-3 p-2">Update profile</h3>
         </div>
         <form action="" method="post" novalidate autocomplete="off">
             {{ form.hidden_tag() }}
@@ -11,41 +11,28 @@
                 {{ form.firstname.label() }} <br>
                 {{ form.firstname(class="form-control") }}
                 {% for error in form.firstname.errors %} <br>
-                    <span class="text-danger">{{ error }}</span>
+                    <span>{{ error }}</span>
                 {% endfor %}
             </div>
             <div class="mb-3">
                 {{ form.lastname.label() }} <br>
                 {{ form.lastname(class="form-control") }}
                 {% for error in form.lastname.errors %} <br>
-                    <span class="text-danger">{{ error }}</span>
+                    <span>{{ error }}</span>
                 {% endfor %}
             </div>
             <div class="mb-3">
                 {{ form.email.label() }} <br>
                 {{ form.email(class="form-control") }}
                 {% for error in form.email.errors %}
-                    <span class="text-danger">{{ error }}</span>
+                    <span>{{ error }}</span>
                 {% endfor %}
             </div>
-            <div class="mb-3">
-                {{ form.password.label() }} <br>
-                {{ form.password(class="form-control") }}
-                {% for error in form.password.errors %}
-                    <span class="text-danger">{{ error }}</span>
-                {% endfor %}
-            </div>
-            <div class="mb-3">
-                {{ form.confirm_password.label() }} <br>
-                {{ form.confirm_password(class="form-control") }}
-                {% for error in form.confirm_password.errors %}
-                    <span class="text-danger">{{ error }}</span>
-                {% endfor %}
-            </div>
+            
             <div class="mb-3">
                 {{ form.submit(class="btn btn-success") }}
+                <button class="btn btn-danger"><a href="{{ url_for('profile') }}" class="text-white">Cancel</a></button>
             </div>
-            <p>Already a user? <a href="{{ url_for('login') }}">Login here</a></p>
 
         </form>
     </div>

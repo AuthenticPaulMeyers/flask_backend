@@ -5,15 +5,15 @@
 
     {% include 'nav.html' %}
     <div class="container mt-4 p-4 mb-4 border rounded-3">
-        <div class="row gap-4">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 justify-content-center gap-4">
             {% for product in products %}
-                <div class="card col" style="width: 18rem;">
-                    <img src="{{ url_for('image', product_id=product.id)}}" class="card-img-top" alt="product image">
+                <div class="card" style="width: 15rem;">
+                    <img src="{{ url_for('image', product_id=product.id)}}" class="card-img-top" alt="product image" height="100%" width="100%">
                     <div class="card-body">
                     <h5 class="card-title">{{ product.name}}: MK{{ product.price }}</h5>
 
                     <p class="card-text">{{ product.description }}</p>
-                    <a href="#" class="btn btn-primary">Buy now</a>
+                    <a href="#" class="btn btn-success">Buy now</a>
                     </div>
                 </div>
             {% endfor %}

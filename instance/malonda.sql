@@ -8,8 +8,8 @@
 --     PRIMARY KEY(id)
 -- );
 
-SELECT * FROM products WHERE NOT user_id = 1;
-select * from users;
+-- SELECT * FROM products WHERE NOT user_id = 1;
+-- select * from users;
 
 -- -- CREATE products TABLE
 -- CREATE TABLE products (
@@ -23,3 +23,4 @@ select * from users;
 --     FOREIGN KEY(user_id) REFERENCES users(id)
 -- );
 
+select * from users;

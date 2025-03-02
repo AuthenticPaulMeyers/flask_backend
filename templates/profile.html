@@ -10,9 +10,43 @@
             <p>LASTNAME: {{ user.lastname}}</p>
             <p>EMAIL: {{ user.email}}</p>
         </div>
-        <a class="btn btn-success" href="">Change password</a>
-        <a class="btn btn-primary" href="">Update profile</a>
+        <a type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"href="">Change password</a>
+        <a class="btn btn-primary" href="{{ url_for('update_profile', user_id=user.id) }}">Update profile</a>
     </div>
+    <!-- Modal -->
+   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Renew password</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="/profile" method="post">
+              {{ form.hidden_tag() }}
+              <div class="mb-3">
+                {{ form.password.label() }}
+                {{ form.password(class="form-control") }}
+                {% for error in form.password.errors %}
+                <span class="text-danger">{{ error }}</span>
+                {% endfor %}
+              </div>
+              <div class="mb-3">
+                {{ form.confirm_password.label() }}
+                {{ form.confirm_password(class="form-control") }}
+                {% for error in form.confirm_password.errors %}
+                <span class="text-danger">{{ error }}</span>
+                {% endfor %}
+              </div>
+              <div class="modal-footer">
+                {{ form.submit( class="btn btn-success") }}
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+              </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
 {% endblock %}
 

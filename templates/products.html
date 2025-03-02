@@ -21,7 +21,7 @@
                 <th>ID</th>
                 <th>Name</th>
                 <th>Description</th>
-                <th>Price</th>
+                <th>Price(MK)</th>
                 <th>Image</th>
                 <th>Action</th>
             </thead>
@@ -33,11 +33,11 @@
                         <td>{{ product.description }}</td>
                         <td>{{ product.price }}</td>
                         <td>
-                            <img src="{{ url_for('image', product_id=product.id) }}" alt="Product image" width="300">
+                            <img src="{{ url_for('image', product_id=product.id) }}" alt="Product image" height="30">
                         </td>
                         <td>
                             <a href="{{ url_for('delete', product_id=product.id) }}">Delete</a>
-                            <a href="edit/product.id">Edit</a>
+                            <a href="{{ url_for('edit_product', product_id=product.id) }}">Edit</a>
                         </td>
                     </tr>
                 {% endfor %}
